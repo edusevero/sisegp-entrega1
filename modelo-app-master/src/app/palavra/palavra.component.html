@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Palavras</mat-card-title>
+    <mat-card-subtitle>Listagem de palavras cadastradas - Exemplo de tabela com Paginação e Ordenação</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <tjrs-search-input placeholder="Buscar por palavra ou significado" (valueChange)="onSearch($event)" />
+
+    <div tjrsLoading [isLoading]="loading()" message="Buscando palavras...">
+      <table matTableResponsive mat-table class="full-width" [dataSource]="palavras()" matSort matSortActive="id" matSortDirection="asc">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header id="id">#</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="palavraChave">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header id="palavraChave">Palavra</th>
+          <td mat-cell *matCellDef="let element">{{ element.palavraChave }}</td>
+        </ng-container>
+        <ng-container matColumnDef="significado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header id="significado">Significado</th>
+          <td mat-cell *matCellDef="let element">{{ element.significado }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef id="actions">Ações</th>
+          <td mat-cell *matCellDef="let element" nowrap>
+            <button matIconButton aria-label="Editar" [routerLink]="['/palavra/update', element.id]" [tjrsKeycloakRoles]="['membros']">
+              <mat-icon matTooltip="Editar">edit</mat-icon>
+            </button>
+            <button matIconButton aria-label="Excluir" tjrs-color="red" (click)="removeItem(element)" [tjrsKeycloakRoles]="['administrador']">
+              <mat-icon matTooltip="Excluir">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [length]="0" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons="true" />
+    </div>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end">
+    <button matButton="tonal" type="button" [routerLink]="'/palavra/add'" matTooltip="Adicionar Palavra" [tjrsKeycloakRoles]="['administrador']"><mat-icon>add</mat-icon> Adicionar</button>
+  </mat-card-actions>
+</mat-card>

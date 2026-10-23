@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Modelo — Arquétipo DITIC 4.1</mat-card-title>
+    <mat-card-subtitle>Aplicação de exemplo para o padrão de desenvolvimento TJRS</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Finalidade:</strong> Demonstrar os padrões, componentes e boas práticas do arquétipo DITIC para desenvolvimento de aplicações Angular no TJRS.</p>
+
+    <p><strong>Recursos disponíveis:</strong></p>
+    <ul>
+      <li><strong>Autenticação:</strong> Integração com Keycloak via OAuth2</li>
+      <li><strong>Menu de Perfil:</strong> Acesse via avatar no header para gerenciar preferências</li>
+      <li><strong>Acessibilidade:</strong> Controles de tamanho de fonte, fonte e espaçamento entre letras</li>
+      <li><strong>Feature CRUD:</strong> Exemplo de implementação com validação e integração com backend</li>
+      <li><strong>Componentes Reutilizáveis:</strong> Header, sidebar e footer da biblioteca @ditic/modelo-ui-lib</li>
+      <li><strong>Padrões Angular:</strong> Standalone components, signals, reactive forms e lazy loading</li>
+    </ul>
+
+    <p>
+      <strong>A biblioteca <code>@ditic/modelo-ui-lib</code> fornece:</strong>
+    </p>
+    <ul>
+      <li><strong>Layout:</strong> Header, sidebar, footer e componentes de navegação</li>
+      <li><strong>Componentes:</strong> Tabelas responsivas, busca, status, timeline e notificações</li>
+      <li><strong>Diálogos:</strong> Confirmação e informação</li>
+      <li><strong>Serviços:</strong> Autenticação, carregamento, acessibilidade, fala e captura de imagem</li>
+      <li><strong>Validadores:</strong> CPF, CNPJ e CNJ</li>
+      <li>
+        ... e muitos outros recursos, acesse a wiki:
+        <a href="https://gitlab.tjrs.jus.br/ditic/assesgov/arqsis/modelo4/modelo-ui/-/wikis/home" target="_blank">https://gitlab.tjrs.jus.br/ditic/assesgov/arqsis/modelo4/modelo-ui/-/wikis/home</a>
+      </li>
+    </ul>
+
+    <tjrs-note tjrs-color="red">
+      <strong>Observação:</strong> Esta página inicial é apenas um exemplo de boas-vindas da aplicação, e não deve ser uma rota autenticada. Caso seja autenticada, o usuário será redirecionado para a página de login após o logout, entrando
+      em loop.
+    </tjrs-note>
+  </mat-card-content>
+  <!-- EDITE ESSA HOME COMO PROFERIR, DE ACORDO COM O NEGÓCIO DA APLICAÇÃO -->
+  <!-- PREFERENCIALMENTE ESTA HOME NÃO DEVE SER UMA ROTA AUTENTICADA, ELA DEVE SER UM "BOAS-VINDAS" DA APLICAÇÃO -->
+  <!-- O MOTIVO É QUE O PROCESSO DE LOGOUT REDIRECIONA O USUÁRIO PARA ESTA PÁGINA, ENTÃO SE ELA FOR AUTENTICADA, O USUÁRIO SERÁ REDIRECIONADO PARA A PÁGINA DE LOGIN APÓS O LOGOUT, FICANDO EM LOOP -->
+</mat-card>

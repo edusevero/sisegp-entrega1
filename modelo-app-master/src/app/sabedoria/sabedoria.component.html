@@ -1,0 +1,15 @@
+<h2>Sabedoria</h2>
+<p>
+  Essa é uma página a consulta de módulo de IA para geração de frases de grande sabedoria que podem mudar a sua vida!<br />
+  Se concordar que a IA varra toda sua informação contida no Gitlab, aperte o botão abaixo.
+</p>
+<button matButton="filled" (click)="consultarIA()">Eu concordo</button>
+
+@if (fraseSabedoria()) {
+<tjrs-note>
+  <h3>Sua frase de sabedoria:</h3>
+  <p>
+    <i>{{ fraseSabedoria() }}</i>
+  </p>
+</tjrs-note>
+}

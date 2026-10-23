@@ -1,0 +1,14 @@
+
+
+<tjrs-header [appTitle]="title" [drawer]="drawer" />
+
+<mat-sidenav-container>
+  <mat-sidenav #drawer>
+    <tjrs-sidebar [sidebarMenu]="menu" [drawer]="drawer" />
+  </mat-sidenav>
+  <mat-sidenav-content role="main">
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<tjrs-footer [version]="version" [appTitle]="title" />

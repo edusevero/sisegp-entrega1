@@ -1,0 +1,34 @@
+<form [formGroup]="palavraForm" novalidate>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Edição de Palavra</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- muda dinamicamente a orientação dos elementos para responsividade -->
+      <div [class]="direction | async">
+        <mat-form-field>
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="ID" formControlName="id" readonly="true" />
+          @if (palavraForm.controls["id"].hasError("required")) {
+            <mat-error> ID é <strong>obrigatório</strong>! </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Palavra</mat-label>
+          <input matInput placeholder="Palavra" formControlName="palavraChave" />
+          @if (palavraForm.controls["palavraChave"].hasError("required")) {
+            <mat-error> Palavra é <strong>obrigatório</strong>! </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Significado</mat-label>
+          <input matInput placeholder="Significado" formControlName="significado" />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matButton [routerLink]="['/palavra']" id="cancelar">Cancelar</button>
+      <button matButton="filled" (click)="salvar()" [disabled]="palavraForm.invalid" id="salvar">Salvar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -1,0 +1,24 @@
+/**
+ * Estilos para o componente de listagem de palavras
+ */
+
+tjrs-search-input {
+  margin: 16px 0;
+}
+
+/**
+ * Classe que define um elemento para ocupar 100% da largura disponível
+ * Utilizada principalmente na tabela para garantir que ocupe todo o espaço horizontal disponível
+ */
+.full-width {
+  width: 100%;
+}
+
+/**
+ * Estilo para o cabeçalho de ações na tabela
+ * Assegura que os botões de ação ficam alinhados à direita
+ */
+.mat-column-actions {
+  text-align: right;
+  justify-content: flex-end;
+}

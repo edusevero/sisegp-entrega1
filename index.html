@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b68">
+  <meta name="description" content="Sistema do Escritório de Gestão de Projetos do TJRS.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SISEGP — Escritório de Gestão de Projetos | TJRS</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/institutional.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="icon-button mobile-only" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" title="Abrir menu">
+          <span data-icon="menu" aria-hidden="true"></span>
+        </button>
+        <a class="brand" href="#/initiatives" aria-label="SISEGP — iniciativas">
+          <span class="brand__mark" aria-hidden="true"><img src="assets/images/tjrs-logo.png" alt=""></span>
+          <span><strong>SISEGP</strong><small>Escritório de Gestão de Projetos</small></span>
+        </a>
+      </div>
+      <img class="topbar__logo" src="assets/images/tjrs-modelo-logo.png" alt="Tribunal de Justiça do Rio Grande do Sul">
+      <div class="topbar__actions">
+        <button class="icon-button" id="global-search-toggle" type="button" aria-label="Pesquisar no sistema" title="Pesquisa global"><span data-icon="search"></span></button>
+        <button class="icon-button notification-button" id="notifications-toggle" type="button" aria-label="Abrir central de notificações" title="Notificações"><span data-icon="bell"></span><b hidden>0</b></button>
+        <div class="profile-container">
+          <button class="profile-button" id="profile-toggle" type="button" aria-label="Abrir menu de Antônio Cepa" aria-expanded="false" aria-controls="profile-menu"><span class="avatar">AC</span><span class="profile-copy"><strong>Antônio Cepa</strong><small>Chefe do EGP</small></span><span data-icon="chevron-down"></span></button>
+          <div class="profile-menu" id="profile-menu" hidden>
+            <p><strong>Antônio Cepa</strong><small>Chefe do EGP</small></p>
+            <a href="#/action/profile">Meu perfil</a>
+            <button id="logout-button" type="button"><span data-icon="log-out"></span>Sair</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <a class="sidebar-brand" href="#/initiatives" aria-label="Tribunal de Justiça do Rio Grande do Sul — Iniciativas">
+        <img src="assets/images/tjrs-instituicao.png" alt="">
+        <span><strong>Tribunal de Justiça</strong><small>Rio Grande do Sul</small></span>
+      </a>
+      <nav>
+        <a class="nav-item" data-route="initiatives" href="#/initiatives"><span data-icon="briefcase"></span><span>Iniciativas</span><b class="nav-count" id="nav-initiative-count">200</b></a>
+
+        <p class="nav-label">Administração</p>
+        <a class="nav-item" data-route="managers" href="#/managers"><span data-icon="user-cog"></span><span>Cadastro de GP</span></a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+    <main id="conteudo" class="main-content" tabindex="-1">
+      <div class="loading-state" aria-live="polite"><span class="spinner"></span><p>Preparando o portfólio…</p></div>
+    </main>
+    <footer class="app-footer"><img src="assets/images/tjrs-modelo-rodape.png" alt="Tribunal de Justiça do Rio Grande do Sul"><span><strong>SISEGP</strong><small>Escritório de Gestão de Projetos</small></span><span class="app-footer__unit">Poder Judiciário do Estado do Rio Grande do Sul</span></footer>
+  </div>
+
+  <div class="command-search" id="global-search" hidden>
+    <div class="command-search__backdrop" data-close="global-search"></div>
+    <section class="command-search__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <h2 class="sr-only" id="search-title">Pesquisa global</h2>
+      <label class="command-search__input"><span data-icon="search"></span><input id="global-search-input" type="search" placeholder="Buscar iniciativas, documentos ou pessoas…" autocomplete="off"><kbd>Esc</kbd></label>
+      <div id="global-search-results" class="command-results"></div>
+      <footer><span><kbd>↑</kbd><kbd>↓</kbd> para navegar</span><span><kbd>Enter</kbd> para abrir</span></footer>
+    </section>
+  </div>
+
+  <aside class="drawer" id="notifications-drawer" aria-labelledby="notifications-title" hidden>
+    <div class="drawer__header"><div><p class="eyebrow">Central de alertas</p><h2 id="notifications-title">Notificações</h2></div><button class="icon-button" type="button" data-close="notifications-drawer" aria-label="Fechar"><span data-icon="x"></span></button></div>
+    <div class="drawer__body" id="notification-list"></div>
+    <div class="drawer__footer"><button class="button button--secondary button--full" id="mark-read" type="button">Marcar todas como lidas</button></div>
+  </aside>
+
+  <div class="modal" id="app-modal" hidden>
+    <div class="modal__backdrop" data-close="app-modal"></div>
+    <section class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal__header"><div><p class="eyebrow" id="modal-eyebrow">SISEGP</p><h2 id="modal-title">Confirmação</h2></div><button class="icon-button" type="button" data-close="app-modal" aria-label="Fechar"><span data-icon="x"></span></button></header>
+      <div class="modal__body" id="modal-body"></div>
+      <footer class="modal__footer" id="modal-footer"></footer>
+    </section>
+  </div>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/initiative-options.js"></script>
+  <script src="assets/js/auxiliary-data.js"></script>
+  <script src="assets/js/initiative-editor.js"></script>
+  <script src="assets/js/demo-completion.js"></script>
+  <script src="assets/js/mvp-views.js"></script>
+  <script src="assets/js/auxiliary-view.js"></script>
+  <script src="assets/js/tap.js"></script>
+  <script src="assets/js/tep.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
